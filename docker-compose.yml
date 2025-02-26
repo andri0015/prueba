@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    working_dir: /api
+    container_name: 'pruebas'
+    command: python manage.py runserver 0.0.0.0:8002
+    ports:
+      - "8002:8000"
+    volumes: # is no too necesary in prod. environment
+      - .:/api
+    environment:
+      - DJANGO_DEBUG=True
+
